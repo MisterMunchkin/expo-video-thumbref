@@ -5,7 +5,11 @@ import {
   VideoThumbnailsResult,
 } from './VideoThumbnailsTypes.types';
 
-export type { VideoThumbnailsOptions, VideoThumbnailsResult, NativeVideoThumbnail };
+export type {
+  VideoThumbnailsOptions,
+  VideoThumbnailsResult,
+  NativeVideoThumbnail,
+};
 
 // @needsAudit
 /**
