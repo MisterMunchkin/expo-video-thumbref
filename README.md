@@ -2,7 +2,7 @@
 
 A community-maintained fork of `expo-video-thumbnails` that provides efficient video thumbnail generation using **SharedRef** for direct use with `expo-image`. This package eliminates the need to cache thumbnail images in your app's file system.
 
-> **Why this fork?** The original `expo-video-thumbnails` package has been deprecated by the Expo team. This fork provides continued support, bug fixes, and compatibility with newer Expo versions (53+).
+> **Why this fork?** The original `expo-video-thumbnails` package has been [deprecated by the Expo team](https://github.com/expo/expo/pull/35641#issuecomment-2111031234) in favor of `expo-video`. However, the `expo-video` approach has significant limitations that make this fork necessary for many use cases.
 
 ## Key Features
 
@@ -196,6 +196,23 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 MIT License - see [LICENSE](LICENSE) file for details.
 
+## Why Not Use expo-video Instead?
+
+The Expo team [deprecated `expo-video-thumbnails`](https://github.com/expo/expo/pull/35641#issuecomment-2111031234) in favor of `expo-video`, but there are significant differences that make this fork necessary:
+
+### expo-video Limitations:
+
+- **Requires VideoPlayer Instance**: `expo-video.generateThumbnailsAsync()` only works with an active VideoPlayer, not standalone video files
+- **Complex URI Conversion**: Returns native image references that require `expo-image-manipulator` to convert to usable file URIs
+- **More Complex API**: Requires creating a video player, generating thumbnails, then converting references to URIs
+
+### This Package Advantages:
+
+- **Standalone Operation**: Generate thumbnails directly from video URIs without creating video players
+- **Direct expo-image Support**: Native image references work directly with `expo-image` components
+- **Simpler API**: One function call to get thumbnails ready for display
+- **Memory Efficient**: No file system caching or complex conversion steps
+
 ## What's Different from the Original?
 
 This fork includes several improvements over the original `expo-video-thumbnails`:
@@ -208,6 +225,16 @@ This fork includes several improvements over the original `expo-video-thumbnails
 - **Active Maintenance**: Continued development and bug fixes
 - **Modern TypeScript**: Updated type definitions for better developer experience
 
+## Technical Background
+
+This package was created based on the work from [PR #35641](https://github.com/expo/expo/pull/35641) which introduced the `getNativeThumbnailAsync` method to solve cache bloat issues in list components. The PR was closed because `expo-video-thumbnails` was being deprecated, but the functionality it provided was essential for many use cases.
+
+The original issue described in the PR:
+
+> "The current getThumbnailAsync() method saves the generated image in cache and returns a URI of the cached image. If used on a component like a list, that gets re-rendered and mount/unmounted, it causes the cache to bloat and ultimately break the app."
+
+This fork preserves that solution while providing continued support for the deprecated package.
+
 ## Acknowledgments
 
-This package is based on the original `expo-video-thumbnails` package by the Expo team. We thank them for their excellent work and foundation.
+This package is based on the original `expo-video-thumbnails` package by the Expo team and the work from [PR #35641](https://github.com/expo/expo/pull/35641). We thank them for their excellent work and foundation.
