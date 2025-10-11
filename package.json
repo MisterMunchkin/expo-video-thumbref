@@ -1,0 +1,59 @@
+{
+  "name": "expo-video-thumbref",
+  "version": "9.3.0",
+  "description": "Provides function that let you generate an image reference from video.",
+  "main": "build/VideoThumbnails.js",
+  "types": "build/VideoThumbnails.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf build",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "test": "echo \"No tests specified\" && exit 0",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "expo-video-thumbnails",
+    "thumbnail",
+    "android",
+    "ios",
+    "video",
+    "image"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MisterMunchkin/expo-video-thumbref.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MisterMunchkin/expo-video-thumbref/issues"
+  },
+  "author": "MisterMunchkin",
+  "license": "MIT",
+  "homepage": "https://github.com/MisterMunchkin/expo-video-thumbref#readme",
+  "dependencies": {
+    "expo-modules-core": "^3.0.21"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "expo": ">=53.0.0"
+  },
+  "files": [
+    "build",
+    "android",
+    "ios",
+    "expo-module.config.json",
+    "*.md"
+  ]
+}
