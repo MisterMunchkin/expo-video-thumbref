@@ -31,18 +31,6 @@ This package requires:
 npm install expo-video-thumbref expo-image
 ```
 
-### iOS Configuration
-
-Run the following command after installation:
-
-```bash
-npx pod-install
-```
-
-### Android Configuration
-
-No additional configuration required.
-
 ## Usage
 
 ### Recommended: Using SharedRef with expo-image
@@ -166,15 +154,9 @@ import * as VideoThumbnails from 'expo-video-thumbnails';
 import * as VideoThumbnails from 'expo-video-thumbref';
 ```
 
-### 4. Run pod install (iOS only)
+### 4. Using SharedRef approach
 
-```bash
-npx pod-install
-```
-
-### 5. Consider upgrading to SharedRef approach
-
-For better performance and memory efficiency, consider using `getNativeThumbnailAsync` instead of `getThumbnailAsync`:
+If you don't require the URI from the generated image, and just wish to display an image, consider using, consider using `getNativeThumbnailAsync` instead of `getThumbnailAsync`:
 
 ```typescript
 // Old approach (still works)
@@ -221,9 +203,6 @@ This fork includes several improvements over the original `expo-video-thumbnails
 - **expo-image Compatibility**: Direct use with `expo-image` component without file system caching
 - **Memory Efficiency**: No temporary files cluttering your app's storage
 - **Updated Dependencies**: Uses `expo-modules-core@^3.0.21` for better compatibility
-- **Expo 53/54 Support**: Resolves dependency conflicts with newer Expo versions
-- **Active Maintenance**: Continued development and bug fixes
-- **Modern TypeScript**: Updated type definitions for better developer experience
 
 ## Technical Background
 
