@@ -26,9 +26,11 @@ jobs:
       - name: Pack
         run: npm pack
 
-      - name: Upload tarball as release asset
+      - name: Create release and upload tarball
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TARBALL=$(ls *.tgz)
-          gh release upload "${{ github.ref_name }}" "$TARBALL" --clobber
+          gh release create "${{ github.ref_name }}" "$TARBALL" \
+            --title "${{ github.ref_name }}" \
+            --generate-notes
