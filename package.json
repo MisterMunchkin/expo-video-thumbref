@@ -1,6 +1,6 @@
 {
   "name": "expo-video-thumbref",
-  "version": "9.3.1",
+  "version": "9.3.2",
   "description": "Provides function that let you generate an image reference from video.",
   "main": "build/VideoThumbnails.js",
   "types": "build/VideoThumbnails.d.ts",
